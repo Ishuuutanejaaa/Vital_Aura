@@ -1,0 +1,36 @@
+.medicine-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .medicine-info {
+    flex: 1;
+  }
+  
+  .medicine-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .medicine-actions button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .medicine-actions button:first-child {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .medicine-actions button:last-child {
+    background-color: #dc3545;
+    color: white;
+  }
+  

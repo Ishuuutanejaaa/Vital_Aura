@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Styles/Login.css';
 
 const Login = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false); // Toggle between login and sign-up
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -13,8 +13,6 @@ const Login = () => {
     password: '',
   });
   const navigate = useNavigate();
-
-  const handleSwitch = () => setIsSignUp(!isSignUp);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,11 +39,15 @@ const Login = () => {
 
       if (response.ok) {
         alert(data.message);
+
         if (isSignUp) {
+          // After successful sign-up, switch to the login view
           setIsSignUp(false);
+          setFormData({ ...formData, password: '' }); // Clear the password field
         } else {
+          // After successful login, save the token and redirect to the home page
           localStorage.setItem('token', data.token);
-          navigate('/home'); // Redirect to home page after successful login
+          navigate('/home');
         }
       } else {
         alert(data.message || 'An error occurred.');
@@ -58,110 +60,107 @@ const Login = () => {
 
   return (
     <div className="log-body">
-      <div className="background"></div>
-      <div className={`container ${isSignUp ? 'right-panel-active' : ''}`}>
-        {/* Sign Up Form */}
-        <div className="form-container sign-up-container">
-          <form onSubmit={handleSubmit}>
+      <div className="container">
+        {isSignUp ? (
+          // Sign-Up Form
+          <div className="form-container">
             <h1>Create Account</h1>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="gender"
-              placeholder="Gender"
-              value={formData.gender}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="address"
-              placeholder="Address"
-              value={formData.address}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="number"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit">Sign Up</button>
-          </form>
-        </div>
-
-        {/* Log In Form */}
-        <div className="form-container log-in-container">
-          <form onSubmit={handleSubmit}>
-            <h1>Log In</h1>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <a href="#">Forgot your password?</a>
-            <button type="submit">Log In</button>
-          </form>
-        </div>
-
-        {/* Overlay */}
-        <div className="overlay-container">
-          <div className="overlay">
-            <div className="overlay-panel overlay-left">
-              <img src="/Vital Aura logo.png" alt="logo" />
-              <h1>Welcome Back!</h1>
-              <p>Stay healthy and motivated</p>
-              <button className="ghost" onClick={handleSwitch}>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                name="gender"
+                placeholder="Gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                name="address"
+                placeholder="Address"
+                value={formData.address}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="number"
+                name="phoneNumber"
+                placeholder="Phone Number"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <button type="submit">Sign Up</button>
+            </form>
+            <p>
+              Already have an account?{' '}
+              <button
+                className="link-button"
+                onClick={() => {
+                  setIsSignUp(false);
+                  setFormData({ ...formData, password: '' }); // Clear password field
+                }}
+              >
                 Log In
               </button>
-            </div>
-            <div className="overlay-panel overlay-right">
-              <img src="/Vital Aura logo.png" alt="logo" />
-              <h1>New Here?</h1>
-              <p>Join us to track and maintain your health</p>
-              <button className="ghost" onClick={handleSwitch}>
+            </p>
+          </div>
+        ) : (
+          // Log-In Form
+          <div className="form-container">
+            <h1>Log In</h1>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <a href="#">Forgot your password?</a>
+              <button type="submit">Log In</button>
+            </form>
+            <p>
+              New here?{' '}
+              <button className="link-button" onClick={() => setIsSignUp(true)}>
                 Sign Up
               </button>
-            </div>
+            </p>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

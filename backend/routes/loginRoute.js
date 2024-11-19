@@ -5,5 +5,5 @@ const{
 }=require("../controllers/loginController");
 const {validateJwtToken} = require("../middlewares/jwtmiddleware");
 router.post("/register", registerPerson);
-router.post("/login",validateJwtToken,loginPerson);
+router.post("/login",loginPerson);
 module.exports=router;

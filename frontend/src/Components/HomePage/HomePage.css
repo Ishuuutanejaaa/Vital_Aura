@@ -1,0 +1,135 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+#FirstSection {
+	background-color: #d2f3fc;
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: space-between; */
+	position: fixed;
+	width: 100%;
+}
+
+.navbar {
+	background-color: #fff;
+	position: fixed;
+	width: 100vw;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.container {
+	display: flex;
+	/* gap: 150px; */
+	justify-content: space-between;
+	height: 90px;
+	align-items: center;
+}
+
+.container img {
+	height: 90px;
+	width: 105px;
+	border-radius: 50%;
+	margin-left: 25px;
+}
+
+.list {
+	display: flex;
+	flex-direction: row;
+}
+
+.list li {
+	margin: 0px 35px;
+}
+.list li a {
+	color: #30343f;
+	font-family: sans-serif;
+	font-weight: 700;
+	font-size: 0.9rem;
+	/* padding: 0.75rem 0; */
+}
+
+.list li a:hover {
+	color: #f4623a;
+}
+
+.first-section-content {
+	width: 78%;
+	margin: 250px auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.first-section-content-text {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+
+.first-section-content-text img {
+	position: absolute;
+	width:950px;
+	top: 100px;
+	right: 30px;
+	
+
+}
+
+.first-section-content-text h1 {
+	font-size: 4.2rem;
+	color: #1b2021;
+	line-height: 4.6rem;
+}
+
+.first-section-content-text p {
+	color: #535353;
+	margin: 15px 0px;
+	max-width: 500px;
+	letter-spacing: 0.3px;
+	line-height: 1.8rem;
+}
+
+.first-section-content-btns {
+	display: flex;
+	/* justify-content: flex-start; */
+	/* align-items: center; */
+}
+
+.first-section-content-btns a {
+	height: 45px;
+	padding: 0px 15px;
+	background-color: #89023e;
+	color: #ffffff;
+	border-radius: 4px;
+	margin-right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.9rem;
+	letter-spacing: 0.5px;
+	font-weight: 500;
+}
+
+.first-section-content-btns a i {
+	width: 18px;
+	height: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background-color: #ea638c;
+	margin-right: 8px;
+	color: #ffffff;
+	font-size: 0.5rem;
+	padding-bottom: 1px;
+}

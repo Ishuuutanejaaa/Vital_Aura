@@ -1,0 +1,65 @@
+/* Set up global styling for body */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .affirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    transition: background-image 0.3s ease-in-out;
+  }
+  
+  .affirmation-box {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .affirmation-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .refresh-button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .refresh-button:hover {
+    background-color: #5a54e1;
+    transform: scale(1.1);
+  }
+  
+  .refresh-button:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 768px) {
+    .affirmation-box {
+      padding: 20px;
+    }
+    .affirmation-text {
+      font-size: 24px;
+    }
+  }

@@ -1,0 +1,72 @@
+/* General styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
+  background: url('../backgroundimage.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.logBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* Subtle overlay for readability */
+}
+
+.container {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+form button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form button:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  color: #6a11cb;
+  cursor: pointer;
+  text-decoration: underline;
+}

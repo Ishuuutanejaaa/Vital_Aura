@@ -1,7 +1,6 @@
-//import React from "react";
-import "../HomePage/HomePage.css"; // Import your CSS file
 import React, { useEffect } from "react";
-//import "./index.css"; // Import your CSS file
+import { Link } from "react-router-dom"; // Import Link for routing
+import "../HomePage/HomePage.css"; // Import your CSS file
 
 const HomePage = () => {
   useEffect(() => {
@@ -44,12 +43,16 @@ const HomePage = () => {
 
             {/* Buttons */}
             <div className="first-section-content-btns">
-              <a href="quiz.html">
-                <i className="fa-solid fa-question"></i> Quiz
-              </a>
-              <a href="Random.html">
-                <i className="fa-solid fa-heart"></i> Random Affirmations
-              </a>
+              <Link to="/quiz" style={{ textDecoration: "none", color: "inherit" }}>
+                <a>
+                  <i className="fa-solid fa-question"></i> Quiz
+                </a>
+              </Link>
+              <Link to="/random-affirmations" style={{ textDecoration: "none", color: "inherit" }}>
+                <a>
+                  <i className="fa-solid fa-heart"></i> Random Affirmations
+                </a>
+              </Link>
             </div>
           </div>
         </div>

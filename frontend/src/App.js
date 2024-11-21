@@ -4,6 +4,7 @@ import Login from './Components/Login'; // Corrected to reference the Login.jsx 
 import HomePage from './Components/HomePage/HomePage';
 import ProtectedRoute from './Components/ProtectedRoute'; // Import the ProtectedRoute
 import RandomAffirmations from './Components/RandomAffirmations/RandomAffirmations';
+import Quiz from './Components/Quiz/Quiz';
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                 {/* Protect the /home route */}
                 <Route path="/home" element={<ProtectedRoute element={<HomePage />} />} />
                 <Route path="/random-affirmations" element={<RandomAffirmations />} /> 
+                <Route path="/quiz" element={<Quiz />} /> 
             </Routes>
         </Router>
     );

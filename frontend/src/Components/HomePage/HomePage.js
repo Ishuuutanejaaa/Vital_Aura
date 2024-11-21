@@ -23,11 +23,12 @@ const HomePage = () => {
             <img src="logo.jpeg" alt="Logo" />
             <div className="navbar-ul">
               <ul className="list">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="Tracker.html">TRACKER</a></li>
-                <li><a href="Reminders.html">REMINDERS</a></li>
-                <li><a href="Reports.html">REPORTS</a></li>
-                <li><a href="Products.html">PRODUCTS</a></li>
+                <li><Link to="/">HOME</Link></li>
+                <li><Link to="/tracker">TRACKER</Link></li>
+                <li> <Link to="/reminders">REMINDERS</Link></li>
+                <li><Link to="/reports">REPORTS</Link>
+                </li>
+                <li><Link to="/products">PRODUCTS</Link></li>
               </ul>
             </div>
           </div>

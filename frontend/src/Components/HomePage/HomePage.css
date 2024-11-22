@@ -4,6 +4,13 @@
 	box-sizing: border-box;
 }
 
+/* body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; 
+  }
+   */
+
 a {
 	text-decoration: none;
 }
@@ -13,6 +20,7 @@ ul {
 }
 
 #FirstSection {
+
 	background-color: #d2f3fc;
 	/* display: flex; */
 	/* flex-direction: column; */
@@ -20,6 +28,7 @@ ul {
 	position: fixed;
 	width: 100%;
 }
+
 
 .navbar {
 	background-color: #fff;

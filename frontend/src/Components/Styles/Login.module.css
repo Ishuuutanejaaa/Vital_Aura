@@ -16,6 +16,7 @@ body, html {
   background: rgba(0, 0, 0, 0.6); /* Subtle overlay for readability */
 }
 
+
 .container {
   width: 400px;
   background: rgba(255, 255, 255, 0.95);

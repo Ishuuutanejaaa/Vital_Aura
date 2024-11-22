@@ -21,8 +21,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isSignUp
-      ? 'http://localhost:5000/api/person/register'
-      : 'http://localhost:5000/api/person/login';
+      ? 'http://localhost:5001/api/person/register'
+      : 'http://localhost:5001/api/person/login';
 
     const payload = isSignUp
       ? formData

@@ -14,10 +14,12 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
+  // Handle form field change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isSignUp
@@ -56,7 +58,8 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.logBody}>
+    <div className={styles.logBody} style={{ backgroundImage: 'url(/backgroundimagelogin.jpeg)' }}>
+      {/* The background image is now applied directly here */}
       <div className={styles.container}>
         {isSignUp ? (
           <div className={styles.formContainer}>

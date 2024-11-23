@@ -1,10 +1,10 @@
-/* General styling */
-body, html {
+/* Login.module.css */
+body.login-page { 
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   height: 100%;
-  background: url('../backgroundimage.jpg') no-repeat center center fixed;
+  background: no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -15,7 +15,6 @@ body, html {
   height: 100vh;
   background: rgba(0, 0, 0, 0.6); /* Subtle overlay for readability */
 }
-
 
 .container {
   width: 400px;

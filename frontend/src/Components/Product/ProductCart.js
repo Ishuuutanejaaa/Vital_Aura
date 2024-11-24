@@ -15,6 +15,7 @@ const ProductCart = () => {
         clearCart();
     };
 
+
     return (
         <div className="cart">
             <h1>Your Cart</h1>

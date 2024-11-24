@@ -39,6 +39,8 @@ const errorHandler = require("./middlewares/errorHandler");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
+const productRoutes = require('./routes/productRoutes');
+const bodyParser = require('body-parser');
 
 // Load environment variables
 dotenv.config();
@@ -109,6 +111,8 @@ app.get("/", (req, res) => {
 
 // Error Handling Middleware
 app.use(errorHandler);
+
+app.use('/api', productRoutes);
 
 // Start the server
 app.listen(port, () => {

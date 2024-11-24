@@ -70,21 +70,20 @@ router.put('/:id', async (req, res) => {
 })
 
 router.post('/new', async (req, res) => {
-    req.body.owner = req.session.userId
     try {
-        const createMedication = await Medication.create(req.body)
+        const createMedication = await Medication.create(req.body);
         res.json({
             status: {
                 code: 201,
                 message: "New Medication created"
             },
             data: createMedication
-        })
+        });
     } catch (e) {
-        console.log(e)
-        res.send(e)
+        console.log(e); // Log any errors
+        res.status(500).send(e); // Send an error response
     }
-})
+});
 
 //Delete route
 router.delete('/:id', async (req, res) => {

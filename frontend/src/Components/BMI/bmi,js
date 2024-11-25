@@ -1,0 +1,90 @@
+import React, { useState } from "react";
+import "./App.css";
+import axios from "axios";
+
+function App() {
+  const [name, setName] = useState("");
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [bmi, setBmi] = useState(null);
+  const [status, setStatus] = useState("");
+  const [message, setMessage] = useState("");
+
+  const calculateBMI = async (e) => {
+    e.preventDefault();
+
+    if (!name || !height || !weight) {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    const heightInMeters = height / 100;
+    const calculatedBMI = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+    let bmiStatus = "";
+    if (calculatedBMI < 18.5) {
+      bmiStatus = "Underweight";
+    } else if (calculatedBMI >= 18.5 && calculatedBMI < 24.9) {
+      bmiStatus = "Normal weight";
+    } else if (calculatedBMI >= 25 && calculatedBMI < 29.9) {
+      bmiStatus = "Overweight";
+    } else {
+      bmiStatus = "Obese";
+    }
+
+    setBmi(calculatedBMI);
+    setStatus(bmiStatus);
+
+    // Save to the backend
+    try {
+      const response = await axios.post("http://localhost:5000/api/bmi", {
+        name,
+        height,
+        weight,
+        bmi: calculatedBMI,
+        status: bmiStatus,
+      });
+      setMessage(response.data);
+    } catch (error) {
+      console.error(error);
+      setMessage("Error saving data.");
+    }
+  };
+
+  return (
+    <div className="App">
+      <h1>BMI Calculator</h1>
+      <form onSubmit={calculateBMI}>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Height (cm)"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Weight (kg)"
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+        />
+        <button type="submit">Calculate BMI</button>
+      </form>
+      {bmi && (
+        <div className="result">
+          <h2>Hello {name}!</h2>
+          <p>Your BMI: <strong>{bmi}</strong></p>
+          <p>Status: <strong>{status}</strong></p>
+          <p>{message}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;

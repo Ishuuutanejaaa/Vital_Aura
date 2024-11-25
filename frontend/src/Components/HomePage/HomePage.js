@@ -103,6 +103,7 @@ const HomePage = () => {
                 <li><Link to="/reminders">REMINDERS</Link></li>
                 <li><Link to="/reports">REPORTS</Link></li>
                 <li><Link to="/products">PRODUCTS</Link></li>
+                <li><Link to="/feedback">FEEDBACK</Link></li>
               </ul>
             </div>
           </div>

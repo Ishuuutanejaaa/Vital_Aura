@@ -41,6 +41,7 @@ const fs = require("fs");
 const path = require("path");
 const productRoutes = require('./routes/productRoutes');
 const bodyParser = require('body-parser');
+const feedbackRoutes = require("./routes/feedbackRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -113,6 +114,9 @@ app.get("/", (req, res) => {
 app.use(errorHandler);
 
 app.use('/api', productRoutes);
+
+// Routes
+app.use("/api/feedback", feedbackRoutes);
 
 // Start the server
 app.listen(port, () => {

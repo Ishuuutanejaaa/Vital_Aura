@@ -9,6 +9,7 @@ import ReportPage from './Components/ReportPage/ReportPage';
 import ProductList from './Components/Product/ProductList'; // Path to ProductList
 import ProductCart from './Components/Product/ProductCart'; // Path to ProductCart
 import { CartProvider } from './Components/Product/CartContext'; // Path to CartContext
+import Feedback from './Components/Feedback/Feedback';
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/random-affirmations" element={<RandomAffirmations />} />
                     <Route path="/quiz" element={<Quiz />} />
                     <Route path="/reports" element={<ReportPage />} />
+                    <Route path="/feedback" element={<Feedback />} />
 
                     {/* Product App Routes */}
                     <Route path="/products" element={<ProductList />} /> 

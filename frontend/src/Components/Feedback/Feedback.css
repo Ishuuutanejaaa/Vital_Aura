@@ -1,0 +1,99 @@
+/* General body styling to center the content */
+  
+  /* Container to center the form and cover the page */
+  .feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Light dark overlay for contrast */
+    backdrop-filter: blur(10px); /* Blur effect for background */
+  }
+  
+  /* Feedback form styling */
+  .feedback-form {
+    width: 100%;
+    max-width: 600px; /* Maximum width of the form */
+    padding: 30px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency for the form box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feedback-form h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Styling for form labels */
+  .feedback-form label {
+    font-size: 16px;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  /* Styling for input fields, select dropdown, and textarea */
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px; /* Consistent spacing between fields */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Ensures padding does not overflow */
+  }
+  
+  .feedback-form input:focus,
+  .feedback-form select:focus,
+  .feedback-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Styling for the submit button */
+  .feedback-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .feedback-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .feedback-form button:focus {
+    outline: none;
+  }
+  
+  /* Make the form responsive for smaller screens */
+  @media (max-width: 768px) {
+    .feedback-form {
+      padding: 20px;
+    }
+  
+    .feedback-form h2 {
+      font-size: 20px;
+    }
+  
+    .feedback-form button {
+      font-size: 16px;
+    }
+  }
+  

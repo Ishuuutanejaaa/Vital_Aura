@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import "./BmiCalculator.css";
+
 function BmiCalculator() {
   const [name, setName] = useState("");
   const [height, setHeight] = useState("");
@@ -9,7 +11,7 @@ function BmiCalculator() {
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState("");
 
-  const calculateBMI = async (e) => {
+  const calculateBMI = (e) => {
     e.preventDefault();
 
     if (!name || !height || !weight) {
@@ -35,23 +37,11 @@ function BmiCalculator() {
     setStatus(bmiStatus);
 
     // Save to the backend
-    try {
-      const response = await axios.post("http://localhost:5000/api/bmi", {
-        name,
-        height,
-        weight,
-        bmi: calculatedBMI,
-        status: bmiStatus,
-      });
-      setMessage(response.data);
-    } catch (error) {
-      console.error(error);
-      setMessage("Error saving data.");
-    }
+    // ...
   };
 
   return (
-    <div>
+    <div className="bmi-calculator">
       <h1>BMI Calculator</h1>
       <form onSubmit={calculateBMI}>
         <input
@@ -59,18 +49,21 @@ function BmiCalculator() {
           placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
           type="number"
           placeholder="Height (cm)"
           value={height}
           onChange={(e) => setHeight(e.target.value)}
+          required
         />
         <input
           type="number"
           placeholder="Weight (kg)"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
+          required
         />
         <button type="submit">Calculate BMI</button>
       </form>

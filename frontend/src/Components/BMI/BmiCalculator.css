@@ -1,0 +1,73 @@
+/* BmiCalculator.css */
+
+/* General styles for the BMI Calculator */
+.bmi-calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styles */
+.bmi-calculator h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form styles */
+.bmi-calculator form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Input field styles */
+.bmi-calculator input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding does not overflow */
+}
+
+/* Button styles */
+.bmi-calculator button {
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.bmi-calculator button:hover {
+    background-color: #0056b3;
+}
+
+/* Result styles */
+.bmi-calculator .result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Result heading styles */
+.bmi-calculator .result h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Result status styles */
+.bmi-calculator .result p {
+    font-size: 1.2rem;
+    color: #666;
+}

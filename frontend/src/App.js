@@ -40,7 +40,7 @@ const App = () => {
                     <Route path="/products" element={<ProductList />} /> 
                     <Route path="/cart" element={<ProductCart />} /> 
 
-                    <Route path="" element={<BmiCalculator />} />
+                    <Route path="/calculator" element={<BmiCalculator />} />
 
                     {/* Medication Tracker Routes */}
                     {/* <Route 

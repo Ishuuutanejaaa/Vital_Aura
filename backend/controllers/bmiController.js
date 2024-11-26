@@ -1,4 +1,4 @@
-const BMI = require("../models/BMI");
+const BMI = require("../model/BMI");
 
 exports.createBMI = async (req, res) => {
   const { name, height, weight, bmi, status } = req.body;

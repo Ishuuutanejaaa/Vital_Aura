@@ -1,40 +1,18 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:9000';
+const API_URL = 'http://localhost:5000';
 
 const headerOptions = {
     'Content-Type': 'application/json',
     token: window.localStorage.getItem('token')
 }
 
-export async function login(userDetails) {
-    try {
-        const result = await fetch('/account/login', {
-            method: 'POST',
-            body: JSON.stringify(userDetails),
-            headers: headerOptions
-        })
-        return await result.json()
-    } catch {
-        return Promise.reject()
-    }
-
-}
-
-export async function register(userDetails) {
-    const result = await fetch('/account/register', {
-        method: 'POST',
-        body: JSON.stringify(userDetails),
-        headers: headerOptions
-    })
-    return result.headers.get('token')
-}
-
-
 export async function addMedication(medicationDetails) {
-    const result = await fetch('/medication/new', {
+    const result = await fetch('http://localhost:5000/medication/new', {
         method: 'POST',
         body: JSON.stringify(medicationDetails),
-        headers: headerOptions // Ensure headers are correctly set
+        headers: {
+            'Content-Type': 'application/json'
+        } // Ensure headers are correctly set
     });
     const data = await result.json();
     return data; // Ensure you return the data from the response

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { getMedicationById, editMedication } from '../Api'
-import MedicationNew from './MedicationNew'
-import FormCompleteMsg from './FormCompleteMsg'
+import { getMedicationById, editMedication } from '../Tracker/Api'
+import MedicationNew from '../Tracker/MedicationNew'
+import FormCompleteMsg from '../Tracker/FormCompleteMsg'
 
 function Edit(props) {
     let { id } = useParams()

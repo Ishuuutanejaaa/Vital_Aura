@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { addMedication } from '../Api'
-import MedicationNew from '../Medication/MedicationNew'
-import FormCompleteMsg from './FormCompleteMsg'
+import { addMedication } from '../Tracker/Api'
+import MedicationNew from '../Tracker/MedicationNew'
+import FormCompleteMsg from '../Tracker/FormCompleteMsg'
 
 function Add() {
     const [submitMsg, setSubmitMsg] = useState({ msg: '', state: false })

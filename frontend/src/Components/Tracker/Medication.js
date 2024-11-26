@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import './Medication.css'
+import '../Tracker/Medication.css'
 import { Jumbotron } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
-import MedicationDisplay from './MedicationDisplay'
-import { getMedicationsList } from '../Api'
+import MedicationDisplay from '../Tracker/MedicationDisplay'
+import { getMedicationsList } from '../Tracker/Api'
 
 
 const Medication = (props) => {

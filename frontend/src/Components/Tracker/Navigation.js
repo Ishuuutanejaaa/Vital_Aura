@@ -13,7 +13,7 @@ import {
 } from 'reactstrap'
 import { Link, useHistory } from 'react-router-dom'
 import moment from 'moment'
-import './Navigation.css'
+import '../Tracker/Navigation.css'
 
 
 const Navigation = (props) => {

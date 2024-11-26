@@ -11,6 +11,12 @@ import ProductCart from './Components/Product/ProductCart'; // Path to ProductCa
 import { CartProvider } from './Components/Product/CartContext'; // Path to CartContext
 import Feedback from './Components/Feedback/Feedback';
 
+// Medication Tracker Imports
+import Add from './Components/Tracker/Add'; // Ensure this path is correct
+import { addMedication } from './Components/Tracker/Api'; // Ensure the API function is correctly imported
+import MedicationNew from './Components/Tracker/MedicationNew';
+import FormCompleteMsg from './Components/Tracker/FormCompleteMsg';
+
 const App = () => {
     return (
         <CartProvider>
@@ -27,6 +33,18 @@ const App = () => {
                     {/* Product App Routes */}
                     <Route path="/products" element={<ProductList />} /> 
                     <Route path="/cart" element={<ProductCart />} /> 
+
+                    {/* Medication Tracker Routes */}
+                    <Route 
+                        path="/tracker" 
+                        element={
+                            <Add 
+                                addMedication={addMedication} 
+                                MedicationNew={MedicationNew} 
+                                FormCompleteMsg={FormCompleteMsg} 
+                            />
+                        } 
+                    />
                 </Routes>
             </Router>
         </CartProvider>

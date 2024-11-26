@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Table, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
-import { getMedicationsList, deleteMedication } from '../Api'
+import { getMedicationsList, deleteMedication } from '../Tracker/Api'
 
 
 const EditList = () => {

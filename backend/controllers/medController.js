@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Medication = require('../models/newMedication')
+const Medication = require('../model/newMedication')
 
 
 //Get all - show all medications

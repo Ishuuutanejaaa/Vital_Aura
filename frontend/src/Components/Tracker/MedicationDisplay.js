@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'reactstrap';
 import moment from 'moment';
 
-import { updateMedicationStatus,getMedications } from '../Api'; // Import your API function to update medication status
+import { updateMedicationStatus,getMedications } from '../Tracker/Api'; // Import your API function to update medication status
 
 
 

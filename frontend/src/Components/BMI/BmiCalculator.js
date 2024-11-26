@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./App.css";
 import axios from "axios";
 
-function App() {
+function BmiCalculator() {
   const [name, setName] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -52,7 +51,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div>
       <h1>BMI Calculator</h1>
       <form onSubmit={calculateBMI}>
         <input
@@ -87,4 +86,4 @@ function App() {
   );
 }
 
-export default App;
+export default BmiCalculator;

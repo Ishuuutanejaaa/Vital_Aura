@@ -11,6 +11,7 @@ const productRoutes = require('./routes/productRoutes');
 const bodyParser = require('body-parser');
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const medController = require('./controllers/medController');
+const bmiRoutes = require("./routes/bmiRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -101,7 +102,12 @@ app.use(session({
     cookie: { secure: false }
 }));
 
+
 app.use('/medication', medController)
+
+
+app.use("/api", bmiRoutes);
+
 
 // Start the server
 app.listen(port, () => {

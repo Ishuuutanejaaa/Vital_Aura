@@ -10,16 +10,17 @@ import ProductList from './Components/Product/ProductList'; // Path to ProductLi
 import ProductCart from './Components/Product/ProductCart'; // Path to ProductCart
 import { CartProvider } from './Components/Product/CartContext'; // Path to CartContext
 import Feedback from './Components/Feedback/Feedback';
+import BmiCalculator from './Components/BMI/BmiCalculator';
 
 // Medication Tracker Imports
 // import Navigation from './Components/Tracker/Navigation';
 // import Medication from './Components/Tracker/Medication';
 // import MedicationEditList from './Components/Tracker/MedicationEditList';
-import Add from './Components/Tracker/Add'; // Ensure this path is correct
+// import Add from './Components/Tracker/Add'; // Ensure this path is correct
 // import { addMedication } from './Components/Tracker/Api'; // Ensure the API function is correctly imported
 // import MedicationNew from './Components/Tracker/MedicationNew';
 // import FormCompleteMsg from './Components/Tracker/FormCompleteMsg';
-import Edit from './Components/Tracker/Edit';
+// import Edit from './Components/Tracker/Edit';
 
 
 const App = () => {
@@ -38,6 +39,8 @@ const App = () => {
                     {/* Product App Routes */}
                     <Route path="/products" element={<ProductList />} /> 
                     <Route path="/cart" element={<ProductCart />} /> 
+
+                    <Route path="" element={<BmiCalculator />} />
 
                     {/* Medication Tracker Routes */}
                     {/* <Route 

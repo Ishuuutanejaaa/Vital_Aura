@@ -12,10 +12,15 @@ import { CartProvider } from './Components/Product/CartContext'; // Path to Cart
 import Feedback from './Components/Feedback/Feedback';
 
 // Medication Tracker Imports
+// import Navigation from './Components/Tracker/Navigation';
+// import Medication from './Components/Tracker/Medication';
+// import MedicationEditList from './Components/Tracker/MedicationEditList';
 import Add from './Components/Tracker/Add'; // Ensure this path is correct
-import { addMedication } from './Components/Tracker/Api'; // Ensure the API function is correctly imported
-import MedicationNew from './Components/Tracker/MedicationNew';
-import FormCompleteMsg from './Components/Tracker/FormCompleteMsg';
+// import { addMedication } from './Components/Tracker/Api'; // Ensure the API function is correctly imported
+// import MedicationNew from './Components/Tracker/MedicationNew';
+// import FormCompleteMsg from './Components/Tracker/FormCompleteMsg';
+import Edit from './Components/Tracker/Edit';
+
 
 const App = () => {
     return (
@@ -35,7 +40,7 @@ const App = () => {
                     <Route path="/cart" element={<ProductCart />} /> 
 
                     {/* Medication Tracker Routes */}
-                    <Route 
+                    {/* <Route 
                         path="/tracker" 
                         element={
                             <Add 
@@ -44,7 +49,7 @@ const App = () => {
                                 FormCompleteMsg={FormCompleteMsg} 
                             />
                         } 
-                    />
+                    /> */}
                 </Routes>
             </Router>
         </CartProvider>
@@ -52,3 +57,4 @@ const App = () => {
 };
 
 export default App;
+

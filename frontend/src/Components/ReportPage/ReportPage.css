@@ -1,70 +1,49 @@
-/* Reset margins and padding for full-screen layout */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
-
-/* Full screen background for the ReportPage */
+/* ReportPage.css */
 .reportpage-background {
-    font-family: "Roboto", sans-serif;
-    height: 100vh; /* Full viewport height */
-    width: 100vw;  /* Full viewport width */
-    background: url("https://www.bestassignmentwriters.co.uk/blog/wp-content/uploads/2020/01/6-main-types-of-report-writing.jpg") no-repeat center center fixed;
-    background-size: cover; /* Ensure the image covers the entire screen */
+    background-color: #f4f6f8;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;  /* Aligns content to the top */
+    align-items: center;
+    padding: 20px;
 }
 
-/* Container for ReportPage content */
 .reportpage-container {
-    max-width: 900px;
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
     width: 100%;
-    margin: 0;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-    border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 10; /* Ensure content is above the background image */
 }
 
-/* Hover effect for container */
-.reportpage-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Title styling for ReportPage */
 .reportpage-title {
     text-align: center;
     color: #333;
-    font-size: 2.5rem;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* File upload styling */
+.reportpage-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .reportpage-file-upload {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-/* File input styling */
 .reportpage-file-input {
-    flex: 1;
-    padding: 10px;
-    border: 2px dashed #007bff;
-    border-radius: 5px;
-    background: #f8f9fa;
-    cursor: pointer;
+    margin-right: 10px;
 }
 
-/* Upload button styling */
 .reportpage-upload-button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -77,43 +56,61 @@ html, body {
     background-color: #0056b3;
 }
 
-/* File list styling */
+.reportpage-loading {
+    text-align: center;
+    color: #007bff;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
 .reportpage-file-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-/* File item styling */
 .reportpage-file-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f8f9fa;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Hover effect for file items */
-.reportpage-file-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+.reportpage-file-details {
+    display: flex;
+    align-items: center;
 }
 
-/* File icon styling */
 .reportpage-file-icon {
     width: 30px;
     height: 30px;
     margin-right: 10px;
-    object-fit: contain;
 }
 
-/* Delete button styling */
+.reportpage-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.reportpage-open-button {
+    padding: 5px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.reportpage-open-button:hover {
+    background-color: #388e3c;
+}
+
 .reportpage-delete-button {
     padding: 5px 15px;
-    background-color: #e53935;
+    background-color: #f44336;
     color: white;
     border: none;
     border-radius: 5px;
@@ -122,5 +119,13 @@ html, body {
 }
 
 .reportpage-delete-button:hover {
-    background-color: #c62828;
+    background-color: #d32f2f;
 }
+
+.reportpage-no-files {
+    text-align: center;
+    color: #777;
+    margin-top: 20px;
+}
+
+

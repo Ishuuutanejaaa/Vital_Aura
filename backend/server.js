@@ -6,41 +6,36 @@ const errorHandler = require("./middlewares/errorHandler");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
-const session = require('express-session')
-const productRoutes = require('./routes/productRoutes');
-const bodyParser = require('body-parser');
+const session = require("express-session");
+const productRoutes = require("./routes/productRoutes");
+const bodyParser = require("body-parser");
 const feedbackRoutes = require("./routes/feedbackRoutes");
-const medController = require('./controllers/medController');
+const medController = require("./controllers/medController");
 const bmiRoutes = require("./routes/bmiRoutes");
 
 // Load environment variables
 dotenv.config();
 connectDb(); // Connect to MongoDB
 
-
-
 const app = express();
-const port = process.env.PORT || 3000;
-
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+const port = process.env.PORT || 5000;
 
 // Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
     origin: "http://localhost:3000", // Allow requests from your frontend
 }));
 
-
-
-// Routes
-app.use("/api/person", require("./routes/loginRoute"));
-
 // Ensure upload directory exists
-const uploadDir = path.join(__dirname, 'uploads');
+const uploadDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir);
 }
+
+// Serve static files from the uploads directory
+app.use("/uploads", express.static(uploadDir));
 
 // Setup Multer storage
 const storage = multer.diskStorage({
@@ -87,29 +82,25 @@ app.get("/", (req, res) => {
     res.send("Backend is working!");
 });
 
+// Routes
+app.use("/api/person", require("./routes/loginRoute"));
+app.use("/api/feedback", feedbackRoutes);
+app.use("/api", productRoutes);
+app.use("/api", bmiRoutes);
+app.use("/medication", medController);
+
 // Error Handling Middleware
 app.use(errorHandler);
 
-app.use('/api', productRoutes);
-
-// Routes
-app.use("/api/feedback", feedbackRoutes);
-
 app.use(session({
-    secret: 'keyboard cat',
+    secret: "keyboard cat",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: { secure: false },
 }));
-
-
-app.use('/medication', medController)
-
-
-app.use("/api", bmiRoutes);
-
 
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+

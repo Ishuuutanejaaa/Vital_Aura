@@ -98,12 +98,12 @@ const HomePage = () => {
             <img src="logo.jpeg" alt="Logo" />
             <div className="navbar-ul">
               <ul className="list">
-                <li><Link to="/">HOME</Link></li>
-                <li><Link to="/tracker">TRACKER</Link></li>
+                <li><Link to="/home">HOME</Link></li>
                 <li><Link to="/calculator">BMI CALCULATOR</Link></li>
                 <li><Link to="/reports">REPORTS</Link></li>
                 <li><Link to="/products">PRODUCTS</Link></li>
                 <li><Link to="/feedback">FEEDBACK</Link></li>
+                <li><Link to="/ChatBot">CHATBOT</Link></li>
               </ul>
             </div>
           </div>

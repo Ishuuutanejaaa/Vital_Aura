@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-import "./BmiCalculator.css";
+import "../BMI/BmiCalculator.css";
 
 function BmiCalculator() {
   const [name, setName] = useState("");
@@ -11,7 +10,7 @@ function BmiCalculator() {
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState("");
 
-  const calculateBMI = (e) => {
+  const calculateBMI = async (e) => {
     e.preventDefault();
 
     if (!name || !height || !weight) {
@@ -37,7 +36,19 @@ function BmiCalculator() {
     setStatus(bmiStatus);
 
     // Save to the backend
-    // ...
+    try {
+      const response = await axios.post("http://localhost:5000/api/bmi", {
+        name,
+        height,
+        weight,
+        bmi: calculatedBMI,
+        status: bmiStatus,
+      });
+      setMessage(response.data);
+    } catch (error) {
+      console.error("Error saving BMI data:", error);
+      setMessage("Error saving data to the server.");
+    }
   };
 
   return (

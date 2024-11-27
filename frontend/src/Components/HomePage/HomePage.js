@@ -103,6 +103,7 @@ const HomePage = () => {
                 <li><Link to="/reports">REPORTS</Link></li>
                 <li><Link to="/products">PRODUCTS</Link></li>
                 <li><Link to="/feedback">FEEDBACK</Link></li>
+                <li><Link to="/newsletter">NEWSLETTER</Link></li>
                 <li><Link to="/ChatBot">CHATBOT</Link></li>
               </ul>
             </div>

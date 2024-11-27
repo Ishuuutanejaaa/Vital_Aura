@@ -13,6 +13,8 @@ const feedbackRoutes = require("./routes/feedbackRoutes");
 const medController = require("./controllers/medController");
 const bmiRoutes = require("./routes/bmiRoutes");
 
+const newsletterRoutes = require('./routes/newsletterRoutes');
+
 // Load environment variables
 dotenv.config();
 connectDb(); // Connect to MongoDB
@@ -88,6 +90,8 @@ app.use("/api/feedback", feedbackRoutes);
 app.use("/api", productRoutes);
 app.use("/api", bmiRoutes);
 app.use("/medication", medController);
+///added
+app.use('/api/newsletter', newsletterRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);

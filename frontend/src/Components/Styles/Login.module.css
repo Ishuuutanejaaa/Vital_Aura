@@ -8,12 +8,17 @@ body.login-page {
   background-size: cover;
 }
 
+
 .logBody {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6); /* Subtle overlay for readability */
+
+  background-size: cover;  /* Ensures the image covers the entire container */
+  background-position: center center; /* Centers the image */
+  background-repeat: no-repeat;  /* Prevents the image from repeating */
 }
 
 .container {

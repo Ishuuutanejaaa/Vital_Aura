@@ -58,7 +58,7 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.logBody} style={{ backgroundImage: 'url(/backgroundimagelogin.jpeg)' }}>
+    <div className={styles.logBody} style={{ backgroundImage: 'url(/loginphoto.avif)' }}>
       {/* The background image is now applied directly here */}
       <div className={styles.container}>
         {isSignUp ? (

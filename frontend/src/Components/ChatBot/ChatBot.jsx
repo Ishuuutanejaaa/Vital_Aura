@@ -50,13 +50,9 @@ function ChatBot() {
   return (
     <div className="chatbot-container">
       <header className="chatbot-header">
-        <a
-          href="https://github.com/Vishesh-Pandey/chat-ai"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h1 className="chatbot-title">Chat AI</h1>
-        </a>
+       
+          <h1 className="chatbot-title">ChatBot</h1>
+        
       </header>
 
       <div
@@ -66,16 +62,11 @@ function ChatBot() {
         {chatHistory.length === 0 ? (
           <div className="chatbot-empty-state">
             <div className="chatbot-empty-content">
-              <h2 className="chatbot-empty-title">Welcome to Chat AI! 👋</h2>
+              <h2 className="chatbot-empty-title">Welcome to your ChatBot 👋</h2>
               <p className="chatbot-empty-description">
-                I'm here to help you with anything you'd like to know. You can ask me about:
+                I'm here to help you with any information you'd like to know. You can ask me anything
               </p>
-              <div className="chatbot-suggestions-grid">
-                <div className="chatbot-suggestion-item">💡 General knowledge</div>
-                <div className="chatbot-suggestion-item">🔧 Technical questions</div>
-                <div className="chatbot-suggestion-item">📝 Writing assistance</div>
-                <div className="chatbot-suggestion-item">🤔 Problem solving</div>
-              </div>
+             
             </div>
           </div>
         ) : (

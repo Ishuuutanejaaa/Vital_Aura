@@ -1,15 +1,19 @@
-/* ReportPage.css */
+/* Report Page Background */
 .reportpage-background {
-    background-color: #f4f6f8;
-    min-height: 100vh;
+    background-image: url('https://s3.envato.com/files/342110480/DSC_3033.jpg'); /* Replace with your desired background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensures it covers the full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
 
+/* Report Page Container */
 .reportpage-container {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for a subtle glass effect */
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -17,6 +21,7 @@
     width: 100%;
 }
 
+/* Title Styles */
 .reportpage-title {
     text-align: center;
     color: #333;
@@ -24,6 +29,7 @@
     margin-bottom: 20px;
 }
 
+/* Error Message */
 .reportpage-error {
     color: red;
     font-weight: bold;
@@ -31,6 +37,7 @@
     margin-bottom: 10px;
 }
 
+/* File Upload Section */
 .reportpage-file-upload {
     display: flex;
     justify-content: center;
@@ -63,6 +70,7 @@
     margin: 10px 0;
 }
 
+/* File List Section */
 .reportpage-file-list {
     list-style: none;
     padding: 0;
@@ -127,5 +135,3 @@
     color: #777;
     margin-top: 20px;
 }
-
-

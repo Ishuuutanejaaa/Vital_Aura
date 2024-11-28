@@ -52,40 +52,42 @@ function BmiCalculator() {
   };
 
   return (
-    <div className="bmi-calculator">
-      <h1>BMI Calculator</h1>
-      <form onSubmit={calculateBMI}>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Height (cm)"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Weight (kg)"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-          required
-        />
-        <button type="submit">Calculate BMI</button>
-      </form>
-      {bmi && (
-        <div className="result">
-          <h2>Hello {name}!</h2>
-          <p>Your BMI: <strong>{bmi}</strong></p>
-          <p>Status: <strong>{status}</strong></p>
-          <p>{message}</p>
-        </div>
-      )}
+    <div className="bmi-calculator-wrapper">
+      <div className="bmi-calculator">
+        <h1>BMI Calculator</h1>
+        <form onSubmit={calculateBMI}>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            placeholder="Height (cm)"
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            placeholder="Weight (kg)"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            required
+          />
+          <button type="submit">Calculate BMI</button>
+        </form>
+        {bmi && (
+          <div className="result">
+            <h2>Hello {name}!</h2>
+            <p>Your BMI: <strong>{bmi}</strong></p>
+            <p>Status: <strong>{status}</strong></p>
+            <p>{message}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

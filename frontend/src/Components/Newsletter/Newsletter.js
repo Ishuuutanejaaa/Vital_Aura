@@ -32,22 +32,25 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="newsletter-container">
-      <h2 className="newsletter-title">Subscribe to Our Newsletter</h2>
-      <form className="newsletter-form" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="newsletter-input"
-        />
-        <button type="submit" className="newsletter-button">
-          Subscribe
-        </button>
-      </form>
-      {message && <p className="newsletter-message">{message}</p>}
+    <div className="newsletter-bg-container">
+      <div className="newsletter-container">
+        <h2 className="newsletter-title">Stay Updated!</h2>
+        <p className="newsletter-subtitle">Join our community and get the latest news and updates straight to your inbox.</p>
+        <form className="newsletter-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="newsletter-input"
+          />
+          <button type="submit" className="newsletter-button">
+            Subscribe
+          </button>
+        </form>
+        {message && <p className="newsletter-message">{message}</p>}
+      </div>
     </div>
   );
 };

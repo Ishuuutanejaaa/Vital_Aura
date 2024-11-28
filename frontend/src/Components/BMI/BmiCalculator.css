@@ -1,73 +1,127 @@
-/* BmiCalculator.css */
-
 /* General styles for the BMI Calculator */
 .bmi-calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Title styles */
-.bmi-calculator h1 {
-    font-size: 2rem;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Title styles */
+  .bmi-calculator h1 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
     color: #333;
-}
-
-/* Form styles */
-.bmi-calculator form {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Form container styles */
+  .bmi-calculator form {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-/* Input field styles */
-.bmi-calculator input {
-    padding: 12px;
+    gap: 20px; /* Adds space between form fields */
+  }
+  
+  /* Input field styles */
+  .bmi-calculator input {
+    padding: 14px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 1rem;
-    box-sizing: border-box; /* Ensures padding does not overflow */
-}
-
-/* Button styles */
-.bmi-calculator button {
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Input field focus effect */
+  .bmi-calculator input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Button styles */
+  .bmi-calculator button {
     padding: 15px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Button hover effect */
-.bmi-calculator button:hover {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Button hover effect */
+  .bmi-calculator button:hover {
     background-color: #0056b3;
-}
-
-/* Result styles */
-.bmi-calculator .result {
-    margin-top: 20px;
+    transform: translateY(-3px); /* Slightly raise the button on hover */
+  }
+  
+  /* Button active (clicked) effect */
+  .bmi-calculator button:active {
+    transform: translateY(1px); /* Button "press" effect */
+  }
+  
+  /* Result section styles */
+  .bmi-calculator .result {
+    margin-top: 30px;
     text-align: center;
-}
-
-/* Result heading styles */
-.bmi-calculator .result h2 {
-    font-size: 1.5rem;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.05); /* Light background to differentiate from form */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Result heading styles */
+  .bmi-calculator .result h2 {
+    font-size: 1.8rem;
     color: #333;
-}
-
-/* Result status styles */
-.bmi-calculator .result p {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Result status styles */
+  .bmi-calculator .result p {
     font-size: 1.2rem;
-    color: #666;
-}
+    color: #555;
+  }
+  
+  /* Background image and effects */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background-image: url('https://as1.ftcdn.net/v2/jpg/02/06/87/40/1000_F_206874022_EjR2cLztKCLPonlt4sNGPdeMpe8UBviF.jpg'); /* Replace with your desired background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Optional: Add a subtle overlay to darken the background */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adds a dark overlay */
+    z-index: 1; /* Makes sure the overlay is below the content */
+  }
+  

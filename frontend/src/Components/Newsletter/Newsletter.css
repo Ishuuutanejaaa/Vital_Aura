@@ -1,50 +1,92 @@
+/* This container holds the background image */
+.newsletter-bg-container {
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  background-image: url('https://thumbs.dreamstime.com/b/abstract-medical-background-abstract-medical-background-various-medicine-symbols-ai-generated-323413632.jpg'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* The actual content box where the form resides */
 .newsletter-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .newsletter-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .newsletter-input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .newsletter-button {
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .newsletter-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .newsletter-message {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #007bff;
-  }
-  
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.newsletter-title {
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Subtitle */
+.newsletter-subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+/* Form layout */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input field */
+.newsletter-input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Button */
+.newsletter-button {
+  padding: 12px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-button:hover {
+  background-color: #0056b3;
+}
+
+/* Message */
+.newsletter-message {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.newsletter-message.error {
+  color: #e74c3c;
+}
+
+.newsletter-message.success {
+  color: #2ecc71;
+}

@@ -12,8 +12,8 @@ const bodyParser = require("body-parser");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const medController = require("./controllers/medController");
 const bmiRoutes = require("./routes/bmiRoutes");
-
 const newsletterRoutes = require('./routes/newsletterRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -92,6 +92,7 @@ app.use("/api", bmiRoutes);
 app.use("/medication", medController);
 ///added
 app.use('/api/newsletter', newsletterRoutes);
+app.use('/api', paymentRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);

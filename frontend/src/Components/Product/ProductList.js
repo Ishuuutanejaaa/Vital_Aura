@@ -8,8 +8,8 @@ const ProductList = () => {
     const { addToCart } = useCart();
     
     const [searchQuery, setSearchQuery] = useState('');
+    const [sortOption, setSortOption] = useState('');
     
-    // Predefined list of products
     const products = [
         { image: 'paracetamol.jpeg', title: 'Paracetamol', price: '₹25.00', description: 'Pain reliever' },
         { image: 'Ibuprofen.jpeg', title: 'Ibuprofen', price: '₹30.00', description: 'Anti-inflammatory' },
@@ -31,46 +31,77 @@ const ProductList = () => {
         { image: 'Antiseptic Cream.jpeg', title: 'Antiseptic Cream', price: '₹80.00', description: 'Wound healing' },
     ];
 
-    // Filtered products based on search query
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
     const filteredProducts = products.filter(
         (product) =>
             product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             product.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    const handleAddToCart = (product) => {
-        addToCart(product);
-        navigate('/cart'); // Redirect to cart page
+    const sortProducts = (products) => {
+        if (sortOption === 'aToZ') {
+            return [...products].sort((a, b) => a.title.localeCompare(b.title));
+        } else if (sortOption === 'zToA') {
+            return [...products].sort((a, b) => b.title.localeCompare(a.title));
+        } else if (sortOption === 'lowToHigh') {
+            return [...products].sort(
+                (a, b) =>
+                    parseFloat(a.price.replace('₹', '').replace(',', '')) -
+                    parseFloat(b.price.replace('₹', '').replace(',', ''))
+            );
+        } else if (sortOption === 'highToLow') {
+            return [...products].sort(
+                (a, b) =>
+                    parseFloat(b.price.replace('₹', '').replace(',', '')) -
+                    parseFloat(a.price.replace('₹', '').replace(',', ''))
+            );
+        }
+        return products;
     };
 
-    const handleSearch = (e) => {
-        setSearchQuery(e.target.value); // Update search query on input change
+    const sortedProducts = sortProducts(filteredProducts);
+
+    const handleAddToCart = (product) => {
+        addToCart(product);
+        navigate('/cart');
     };
 
     return (
         <div className="product-page">
-            <div className="search-bar">
-                <input
-                    type="text"
-                    placeholder="Search for medicines..."
-                    value={searchQuery}
-                    onChange={handleSearch}
-                />
-                <button onClick={() => setSearchQuery(searchQuery)}>Search</button>
+            <div className="top-bar">
+                <div className="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search for medicines..."
+                        value={searchQuery}
+                        onChange={handleSearch}
+                    />
+                </div>
+                <div className="sort-bar">
+                    <select onChange={(e) => setSortOption(e.target.value)}>
+                        <option value="">Sort by</option>
+                        <option value="aToZ">A to Z</option>
+                        <option value="zToA">Z to A</option>
+                        <option value="lowToHigh">Price: Low to High</option>
+                        <option value="highToLow">Price: High to Low</option>
+                    </select>
+                </div>
             </div>
-
             <div className="product-list">
-                {filteredProducts.length === 0 ? (
+                {sortedProducts.length === 0 ? (
                     <p>No products found</p>
                 ) : (
-                    filteredProducts.map((product, index) => (
+                    sortedProducts.map((product, index) => (
                         <div className="product" key={index}>
                             <img src={product.image} alt={product.title} />
                             <h3>{product.title}</h3>
                             <p>{product.description}</p>
                             <p>{product.price}</p>
                             <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
-                            <button onClick={() => handleAddToCart(product)}>Buy Now</button>
+                            <button>Buy Now</button>
                         </div>
                     ))
                 )}
@@ -80,4 +111,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-

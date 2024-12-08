@@ -13,6 +13,8 @@ import Feedback from './Components/Feedback/Feedback';
 import BmiCalculator from './Components/BMI/BmiCalculator';
 import ChatBot from './Components/ChatBot/ChatBot';
 import Newsletter from './Components/Newsletter/Newsletter';
+import Success from './Components/Product/Success';
+import Cancel from './Components/Product/Cancel';
 
 // Medication Tracker Imports
 // import Navigation from './Components/Tracker/Navigation';
@@ -41,6 +43,8 @@ const App = () => {
                     {/* Product App Routes */}
                     <Route path="/products" element={<ProductList />} /> 
                     <Route path="/cart" element={<ProductCart />} /> 
+                    <Route path="/success" elemet={<Success />} />
+                    <Route path="/cancel" element={<Cancel />} />
 
                     <Route path="/calculator" element={<BmiCalculator />} />
                     <Route path="/ChatBot" element={<ChatBot />} />

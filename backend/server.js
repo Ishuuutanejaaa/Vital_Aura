@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3000", // Allow requests from your frontend
+    origin: 'http://localhost:3000', // Replace with your actual frontend URL
 }));
 
 // Ensure upload directory exists
@@ -92,7 +92,7 @@ app.use("/api", bmiRoutes);
 app.use("/medication", medController);
 ///added
 app.use('/api/newsletter', newsletterRoutes);
-app.use('/api', paymentRoutes);
+app.use('/api/products', paymentRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);

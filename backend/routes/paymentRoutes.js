@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const stripe = require('../config/stripe');
@@ -22,13 +23,14 @@ router.post('/create-checkout-session', async (req, res) => {
             payment_method_types: ['card'],
             line_items,
             mode: 'payment',
-            success_url: `${process.env.FRONTEND_URL}/success`, // Redirect to success page
-            cancel_url: `${process.env.FRONTEND_URL}/cancel`, // Redirect to cancel page
+            success_url: `${process.env.FRONTEND_URL}/product/success`,
+            cancel_url: `${process.env.FRONTEND_URL}/product/cancel`,
         });
 
         res.json({ id: session.id });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Stripe session creation error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 

@@ -9,7 +9,7 @@ const ProductList = () => {
     
     const [searchQuery, setSearchQuery] = useState('');
     const [sortOption, setSortOption] = useState('');
-    
+
     const products = [
         { image: 'paracetamol.jpeg', title: 'Paracetamol', price: '₹25.00', description: 'Pain reliever' },
         { image: 'Ibuprofen.jpeg', title: 'Ibuprofen', price: '₹30.00', description: 'Anti-inflammatory' },
@@ -49,13 +49,13 @@ const ProductList = () => {
         } else if (sortOption === 'lowToHigh') {
             return [...products].sort(
                 (a, b) =>
-                    parseFloat(a.price.replace('₹', '').replace(',', '')) -
+                    parseFloat(a.price.replace('₹', '').replace(',', '')) - 
                     parseFloat(b.price.replace('₹', '').replace(',', ''))
             );
         } else if (sortOption === 'highToLow') {
             return [...products].sort(
                 (a, b) =>
-                    parseFloat(b.price.replace('₹', '').replace(',', '')) -
+                    parseFloat(b.price.replace('₹', '').replace(',', '')) - 
                     parseFloat(a.price.replace('₹', '').replace(',', ''))
             );
         }

@@ -14,6 +14,7 @@ const medController = require("./controllers/medController");
 const bmiRoutes = require("./routes/bmiRoutes");
 const newsletterRoutes = require('./routes/newsletterRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
+const medicineRoutes = require('./routes/medicineRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -93,6 +94,7 @@ app.use("/medication", medController);
 ///added
 app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/products', paymentRoutes);
+app.use('/api', medicineRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);

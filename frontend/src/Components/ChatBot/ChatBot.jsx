@@ -7,6 +7,7 @@ function ChatBot() {
   const [chatHistory, setChatHistory] = useState([]);
   const [question, setQuestion] = useState("");
   const [generatingAnswer, setGeneratingAnswer] = useState(false);
+  const [medicines, setMedicines] = useState([]); // State to hold medicine data
 
   const chatContainerRef = useRef(null);
 
@@ -15,6 +16,20 @@ function ChatBot() {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   }, [chatHistory, generatingAnswer]);
+
+  // Fetch medicines from the backend when the component mounts
+  useEffect(() => {
+    const fetchMedicines = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/chatbot/medicines'); // Adjust the endpoint as necessary
+        setMedicines(response.data); // Assuming the data is in response.data
+      } catch (error) {
+        console.error('Error fetching medicines:', error);
+      }
+    };
+
+    fetchMedicines();
+  }, []);
 
   async function generateAnswer(e) {
     e.preventDefault();
@@ -27,22 +42,54 @@ function ChatBot() {
     // Add user question to chat history
     setChatHistory((prev) => [...prev, { type: "question", content: currentQuestion }]);
 
-    try {
-      const API_KEY = "AIzaSyBsxf2VPR3IY-z6AxUvy-aueidFZme_Llg"; // Use your API key
-      const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
-        method: "post",
-        data: {
-          contents: [{ parts: [{ text: question }] }],
-        },
-      });
 
-      const aiResponse = response.data.candidates[0].content.parts[0].text;
-      setChatHistory((prev) => [...prev, { type: "answer", content: aiResponse }]);
-    } catch (error) {
-      console.error(error);
-      setChatHistory((prev) => [...prev, { type: "answer", content: "Sorry, something went wrong. Please try again!" }]);
-    }
+     // Debugging logs
+     console.log("Current Question:", currentQuestion);
+     console.log("Medicines List:", medicines);
+
+
+    // Check if the question is related to medicines
+    const medicine = medicines.find(med => currentQuestion.toLowerCase().includes(med.name.toLowerCase()));
+    console.log("Found Medicine:", medicine); // Log the found medicine
+    if (medicine) {
+        let answer = "";
+        if (currentQuestion.toLowerCase().includes("dosage")) {
+            answer = `The dosage for ${medicine.name} is: ${medicine.dosage}`;
+        } else if (currentQuestion.toLowerCase().includes("side effects")) {
+            answer = `The side effects of ${medicine.name} include: ${medicine.sideEffects.join(', ')}`;
+        } else if (currentQuestion.toLowerCase().includes("interactions")) {
+            answer = `The interactions for ${medicine.name} include: ${medicine.interactions.join(', ')}`;
+        } else if (currentQuestion.toLowerCase().includes("uses")) {
+            answer = `The uses of ${medicine.name} include: ${medicine.uses.join(', ')}`;
+        } else if (currentQuestion.toLowerCase().includes("notes")) {
+            answer = `Notes for ${medicine.name}: ${medicine.notes}`;
+        } else {
+            answer = `Here is the information about ${medicine.name}:\n- Dosage: ${medicine.dosage}\n- Side Effects: ${medicine.sideEffects.join(', ')}\n- Interactions: ${medicine.interactions.join(', ')}\n- Uses: ${medicine.uses.join(', ')}\n- Notes: ${medicine.notes}`;
+        }
+        setChatHistory((prev) => [...prev, { type: "answer", content: answer }]);
+      } else {
+          setChatHistory((prev) => [...prev, { type: "answer", content: "I'm sorry, I can only answer questions related to medicines." }]);
+      }
+
+
+
+    // Call the AI API
+    // try {
+    //   const API_KEY = "AIzaSyBsxf2VPR3IY-z6AxUvy-aueidFZme_Llg"; // Use your API key
+    //   const response = await axios({
+    //     url: https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY},
+    //     method: "post",
+    //     data: {
+    //       contents: [{ parts: [{ text: question }] }],
+    //     },
+    //   });
+
+    //   const aiResponse = response.data.candidates[0].content.parts[0].text;
+    //   setChatHistory((prev) => [...prev, { type: "answer", content: aiResponse }]);
+    // } catch (error) {
+    //   console.error(error);
+    //   setChatHistory((prev) => [...prev, { type: "answer", content: "Sorry, something went wrong. Please try again!" }]);
+    // }
 
     setGeneratingAnswer(false);
   }
@@ -50,15 +97,10 @@ function ChatBot() {
   return (
     <div className="chatbot-container">
       <header className="chatbot-header">
-       
-          <h1 className="chatbot-title">ChatBot</h1>
-        
+        <h1 className="chatbot-title">ChatBot</h1>
       </header>
 
-      <div
-        ref={chatContainerRef}
-        className="chatbot-chat-container chatbot-hide-scrollbar"
-      >
+      <div ref={chatContainerRef} className="chatbot-chat-container chatbot-hide-scrollbar">
         {chatHistory.length === 0 ? (
           <div className="chatbot-empty-state">
             <div className="chatbot-empty-content">
@@ -66,16 +108,12 @@ function ChatBot() {
               <p className="chatbot-empty-description">
                 I'm here to help you with any information you'd like to know. You can ask me anything
               </p>
-             
             </div>
           </div>
         ) : (
           <>
             {chatHistory.map((chat, index) => (
-              <div
-                key={index}
-                className={`chatbot-message ${chat.type === "question" ? "chatbot-question" : "chatbot-answer"}`}
-              >
+              <div key={index} className={`chatbot-message ${ chat.type === "question" ? "chatbot-question" : "chatbot-answer"}`}>
                 <div className={`chatbot-message-content ${chat.type}`}>
                   <ReactMarkdown>{chat.content}</ReactMarkdown>
                 </div>
